@@ -21,17 +21,15 @@ def validate_quality(dataset):
     for index, sample in enumerate(dataset):
 
         prompt = str(
-            sample.get(
-                "prompt",
-                ""
-            )
+            sample.get("prompt")
+            or sample.get("input")
+            or ""
         ).strip()
 
         expected = str(
-            sample.get(
-                "expected_output",
-                ""
-            )
+            sample.get("expected_output")
+            or sample.get("output")
+            or ""
         ).strip()
 
         # ==============================================

@@ -1,42 +1,34 @@
-REQUIRED_FIELDS = [
-
-    "prompt",
-    "expected_output"
-
-]
-
 def validate_schema(dataset):
 
     errors = []
 
     for index, sample in enumerate(dataset):
 
-        for field in REQUIRED_FIELDS:
+        # Check prompt / input field
+        prompt_field = None
+        if "prompt" in sample:
+            prompt_field = "prompt"
+        elif "input" in sample:
+            prompt_field = "input"
 
-            if field not in sample:
+        if prompt_field is None:
+            errors.append(f"Record {index}: missing 'prompt'")
+        else:
+            if not isinstance(sample[prompt_field], str):
+                errors.append(f"Record {index}: '{prompt_field}' must be string")
 
-                errors.append(
+        # Check expected_output / output field
+        output_field = None
+        if "expected_output" in sample:
+            output_field = "expected_output"
+        elif "output" in sample:
+            output_field = "output"
 
-                    f"Record {index}: "
-                    f"missing '{field}'"
-
-                )
-
-                continue
-
-            if not isinstance(
-
-                sample[field],
-                str
-
-            ):
-
-                errors.append(
-
-                    f"Record {index}: "
-                    f"'{field}' must be string"
-
-                )
+        if output_field is None:
+            errors.append(f"Record {index}: missing 'expected_output'")
+        else:
+            if not isinstance(sample[output_field], str):
+                errors.append(f"Record {index}: '{output_field}' must be string")
 
     return {
 
