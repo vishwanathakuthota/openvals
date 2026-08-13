@@ -121,8 +121,7 @@ def doctor_cli():
     typer.echo(f"Memory GB           : {system.get('memory_gb')}")
     typer.echo(f"Memory Available GB : {system.get('memory_available_gb')}")
     typer.echo(f"Memory Used         : {system.get('memory_percent_used')}%")
-    typer.echo(f"GPU Count           : {gpu.get('count', 0)}")
-    typer.echo(f"Disk Space GB       : {disk.get('space_gb', 0)}")
+    
     typer.echo(f"Recommended Workers : {system.get('recommended_max_workers')}")
 
     typer.echo("\nGPU / Acceleration")
