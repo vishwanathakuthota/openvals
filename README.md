@@ -411,7 +411,7 @@ Contributions are welcome.
 
 ## License
 
-Dr.Pinnacle Community Edition License (DPCL-CE) v1.0
+Dr.Pinnacle Community Edition License (DPCL-CE)
 
 ---
 

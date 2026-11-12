@@ -2,38 +2,53 @@
 .venv/
 venv/
 openv/
+env/
 
 # Python cache
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
 *$py.class
 
 # Build artifacts
 build/
 dist/
 *.egg-info/
+*.whl
 
 # macOS
 .DS_Store
-*.html
 
-# Outputs
+# IDE
+.vscode/
+.idea/
+
+# Test-generated artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+nosetests.xml
+coverage.xml
+tests/__pycache__/
+tests/*.pyc
+
+# Temporary files and logs
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Local outputs
 outputs/
 reports/
 pdf/
 output/
 
-# IDE 
-.vscode/
-.idea/
+# Generated HTML reports
+*.html
 
-# Testing
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.log
-.pytest_cache/
+# Local secrets
+.env
+.env.*
+!.env.example
